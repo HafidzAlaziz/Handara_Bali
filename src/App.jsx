@@ -5,18 +5,22 @@ import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
+const MainLayout = ({ children }) => (
+  <>
+    <Navbar />
+    <main className="flex-grow">{children}</main>
+    <Footer />
+  </>
+);
+
 function App() {
   return (
     <Router>
       <div className="font-sans text-text antialiased scroll-smooth flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
+        <Routes>
+          <Route path="/" element={<MainLayout><Home /></MainLayout>} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
     </Router>
   );

@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+// Local Assets
+import bg404 from '../assets/hero-bg.jpg'; // Using hero-bg as a fallback for offline stability
+
 const NotFound = () => {
     return (
         <div className="relative min-h-screen flex items-center justify-center bg-[#0F1C2E] overflow-hidden">
@@ -9,10 +12,10 @@ const NotFound = () => {
             <div
                 className="absolute inset-0 bg-cover bg-center z-0"
                 style={{
-                    backgroundImage: 'url("https://images.unsplash.com/photo-1560625691-1f18536e9d7c?auto=format&fit=crop&q=80&w=2000")', // Night resort pool
+                    backgroundImage: `url(${bg404})`,
                 }}
             >
-                <div className="absolute inset-0 bg-[#0F2823]/60 mix-blend-multiply" /> {/* Tint matches primary color */}
+                <div className="absolute inset-0 bg-[#0F2823]/80 mix-blend-multiply" />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0F1C2E]" />
             </div>
 
@@ -31,9 +34,9 @@ const NotFound = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                    Oops! We can't see to find a page you <br className="hidden md:block" />
-                    are looking for! Don't worry and try it <br className="hidden md:block" />
-                    out again.
+                    Oops! We can't seem to find the page you <br className="hidden md:block" />
+                    are looking for! Don't worry and try <br className="hidden md:block" />
+                    heading back to our home.
                 </motion.p>
 
                 <motion.div
@@ -44,12 +47,12 @@ const NotFound = () => {
                 >
                     <Link
                         to="/"
-                        className="bg-white text-[#0F2823] px-10 py-4 text-lg font-semibold hover:bg-gray-100 transition-all rounded-sm min-w-[240px]"
+                        className="bg-white text-[#0F2823] px-10 py-4 text-lg font-semibold hover:bg-gray-100 transition-all rounded-full min-w-[240px]"
                     >
                         Back To Home Page
                     </Link>
                     <button
-                        className="bg-[#98B88B] text-[#0F2823] px-10 py-4 text-lg font-semibold hover:bg-[#86A37A] transition-all rounded-sm min-w-[240px]"
+                        className="bg-[#98B88B] text-[#0F2823] px-10 py-4 text-lg font-semibold hover:bg-[#86A37A] transition-all rounded-full min-w-[240px]"
                     >
                         Contact US
                     </button>

@@ -51,12 +51,16 @@ const HeroSection = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
                     >
-                        {['Instagram', 'WhatsApp', 'Facebook'].map((social) => (
+                        {[
+                            { name: 'Instagram', hoverColor: 'hover:bg-[#E4405F]' },
+                            { name: 'WhatsApp', hoverColor: 'hover:bg-[#25D366]' },
+                            { name: 'Facebook', hoverColor: 'hover:bg-[#1877F2]' }
+                        ].map((social) => (
                             <button
-                                key={social}
-                                className="bg-white text-primary px-8 py-3 rounded-full text-sm font-bold hover:bg-gray-100 transition-all shadow-lg min-w-[140px] text-center"
+                                key={social.name}
+                                className={`bg-white text-primary px-8 py-3 rounded-full text-sm font-bold transition-all shadow-lg min-w-[140px] text-center hover:text-white ${social.hoverColor}`}
                             >
-                                {social}
+                                {social.name}
                             </button>
                         ))}
                     </motion.div>
@@ -64,12 +68,16 @@ const HeroSection = () => {
 
                 {/* Mobile Socials (Horizontal for mobile) */}
                 <div className="flex md:hidden space-x-3 mt-8">
-                    {['Instagram', 'WhatsApp', 'Facebook'].map((social) => (
+                    {[
+                        { name: 'Instagram', hoverColor: 'hover:bg-[#E4405F]' },
+                        { name: 'WhatsApp', hoverColor: 'hover:bg-[#25D366]' },
+                        { name: 'Facebook', hoverColor: 'hover:bg-[#1877F2]' }
+                    ].map((social) => (
                         <button
-                            key={social}
-                            className="bg-white text-primary px-4 py-2 rounded-full text-xs font-bold shadow-lg"
+                            key={social.name}
+                            className={`bg-white text-primary px-4 py-2 rounded-full text-xs font-bold shadow-lg transition-all hover:text-white ${social.hoverColor}`}
                         >
-                            {social}
+                            {social.name}
                         </button>
                     ))}
                 </div>

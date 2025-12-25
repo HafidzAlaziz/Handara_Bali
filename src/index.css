@@ -4,10 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
-  --color-primary: #0F2823; /* Dark green from hero */
-  --color-secondary: #D4AF37; /* Gold accent */
-  --color-accent: #6B8E23; /* Lighter green */
+  --color-primary: #0F2823;
+  /* Dark green from hero */
+  --color-secondary: #D4AF37;
+  /* Gold accent */
+  --color-accent: #6B8E23;
+  /* Lighter green */
   --color-text: #333333;
   --color-bg: #F9F9F9;
 }
@@ -19,7 +26,12 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Playfair Display', serif;
 }
 

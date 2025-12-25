@@ -77,32 +77,37 @@ const Navbar = () => {
                 </button>
             </div>
 
-            {isMobileMenuOpen && (
-                <motion.div
-                    initial={{ opacity: 0, x: '100%' }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: '100%' }}
-                    className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8 md:hidden"
-                >
-                    {navLinks.map((link) => (
+            {/* Mobile Menu Overlay */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, x: '100%' }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: '100%' }}
+                        transition={{ duration: 0.4, ease: "circOut" }}
+                        className="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 md:hidden shadow-2xl"
+                        style={{ height: '100vh', width: '100vw' }}
+                    >
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                className="text-primary text-3xl font-serif font-bold hover:text-secondary transition-colors"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                {link.name}
+                            </a>
+                        ))}
                         <a
-                            key={link.name}
-                            href={link.href}
-                            className="text-primary text-2xl font-serif font-bold hover:text-secondary"
+                            href="#contact"
+                            className="bg-primary text-white px-12 py-4 rounded-full text-sm font-bold uppercase tracking-widest mt-6 hover:bg-secondary transition-all shadow-lg"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            {link.name}
+                            Call Us
                         </a>
-                    ))}
-                    <a
-                        href="#contact"
-                        className="bg-primary text-white px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest mt-4"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                        Call Us
-                    </a>
-                </motion.div>
-            )}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </motion.nav>
     );
 };

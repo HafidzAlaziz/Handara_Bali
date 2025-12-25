@@ -52,13 +52,29 @@ const HeroSection = () => {
                         transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
                     >
                         {[
-                            { name: 'Instagram', hoverColor: 'hover:bg-[#E4405F]' },
-                            { name: 'WhatsApp', hoverColor: 'hover:bg-[#25D366]' },
-                            { name: 'Facebook', hoverColor: 'hover:bg-[#1877F2]' }
+                            { name: 'Instagram', color: '#E4405F' },
+                            { name: 'WhatsApp', color: '#25D366' },
+                            { name: 'Facebook', color: '#1877F2' }
                         ].map((social) => (
                             <button
                                 key={social.name}
-                                className={`bg-white text-primary px-8 py-3 rounded-full text-sm font-bold transition-all shadow-lg min-w-[140px] text-center hover:text-white ${social.hoverColor}`}
+                                className="bg-white text-primary px-8 py-3 rounded-full text-sm font-bold transition-all shadow-lg min-w-[140px] text-center hover:scale-105 active:scale-95 group relative overflow-hidden"
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.backgroundColor = social.color;
+                                    e.currentTarget.style.color = 'white';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.backgroundColor = 'white';
+                                    e.currentTarget.style.color = '#0F2823';
+                                }}
+                                onTouchStart={(e) => {
+                                    e.currentTarget.style.backgroundColor = social.color;
+                                    e.currentTarget.style.color = 'white';
+                                }}
+                                onTouchEnd={(e) => {
+                                    e.currentTarget.style.backgroundColor = 'white';
+                                    e.currentTarget.style.color = '#0F2823';
+                                }}
                             >
                                 {social.name}
                             </button>
@@ -69,13 +85,21 @@ const HeroSection = () => {
                 {/* Mobile Socials (Horizontal for mobile) */}
                 <div className="flex md:hidden space-x-3 mt-8">
                     {[
-                        { name: 'Instagram', hoverColor: 'hover:bg-[#E4405F]' },
-                        { name: 'WhatsApp', hoverColor: 'hover:bg-[#25D366]' },
-                        { name: 'Facebook', hoverColor: 'hover:bg-[#1877F2]' }
+                        { name: 'Instagram', color: '#E4405F' },
+                        { name: 'WhatsApp', color: '#25D366' },
+                        { name: 'Facebook', color: '#1877F2' }
                     ].map((social) => (
                         <button
                             key={social.name}
-                            className={`bg-white text-primary px-4 py-2 rounded-full text-xs font-bold shadow-lg transition-all hover:text-white ${social.hoverColor}`}
+                            className="bg-white text-primary px-4 py-2 rounded-full text-xs font-bold shadow-lg transition-all active:scale-90"
+                            onTouchStart={(e) => {
+                                e.currentTarget.style.backgroundColor = social.color;
+                                e.currentTarget.style.color = 'white';
+                            }}
+                            onTouchEnd={(e) => {
+                                e.currentTarget.style.backgroundColor = 'white';
+                                e.currentTarget.style.color = '#0F2823';
+                            }}
                         >
                             {social.name}
                         </button>

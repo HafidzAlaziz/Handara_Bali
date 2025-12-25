@@ -4,7 +4,7 @@ import heroBg from '../../assets/hero-bg.jpg';
 
 const HeroSection = () => {
     return (
-        <section className="relative h-screen w-full overflow-hidden">
+        <section className="relative h-screen w-full overflow-hidden" id="home">
             {/* Background Image */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 scale-100"
